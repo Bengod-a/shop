@@ -25,6 +25,6 @@ export const categories: Category[] = [
   { id: 9, name: "เมาส์", icon: <Icon icon="material-symbols-light:mouse-outline" width="24" height="24" />, href: "/category/mouse" },
   { id: 10, name: "คีย์บอร์ด", icon: <Icon icon="material-symbols-light:keyboard-outline-rounded" width="24" height="24" />, href: "/category/keyboard" },
   { id: 11, name: "จอมอนิเตอร์", icon: <Monitor size={18} />, href: "/category/monitor" },
-  // { id: 12, name: "อุปกรณ์เสริม", icon: <Icon icon="famicons:game-controller-outline" width="24" height="24" />, href: "/category/card" },
   { id: 12, name: "จัดสเปกคอม", icon: <Icon icon="codicon:tools" width="16" height="16" />, href: "/diy" },
+  { id: 13, name: "By [Aniwat]", icon: <Icon icon="mdi:code" width="24" height="24" />, href: "/Bio" },
 ];
