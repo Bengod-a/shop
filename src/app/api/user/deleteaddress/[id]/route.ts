@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "../../../../../lib/db";
 
 export async function DELETE(req: NextRequest, { params }:any) {
-  const { id } = params.id;
-    console.log(id);
+  const { id } = params;
 
   try {
     const addressId = parseInt(id, 10);
