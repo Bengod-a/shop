@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
-https://shop-paq2.onrender.com/
+https://shop-bengod.vercel.app/
 
 ```bash
 npm run dev
