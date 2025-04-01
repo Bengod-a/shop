@@ -15,7 +15,7 @@ export async function uploadFileProduct(image: File) {
     .from(bucket)
     .upload(newname, image);
   
-  if (error) throw new Error("❌ Image Upload Failed: " + error.message);
+  if (error) throw new Error("Image Upload Failed: " + error.message);
   
   return supabase.storage.from(bucket).getPublicUrl(newname).data.publicUrl;
 }
@@ -25,7 +25,7 @@ export async function deleteFileProduct(imageUrl: string) {
     const filePath = imageUrl.split(`${bucket}/`)[1]; 
     
     if (!filePath) {
-      console.error("❌ ไม่สามารถดึงชื่อไฟล์จาก URL ได้");
+      console.error("ไม่สามารถดึงชื่อไฟล์จาก URL ได้");
       return;
     }
 
@@ -34,6 +34,6 @@ export async function deleteFileProduct(imageUrl: string) {
     if (error) throw error;
     console.log(`✅ ลบไฟล์สำเร็จ: ${filePath}`);
   } catch (error) {
-    console.error("❌ ลบไฟล์ไม่สำเร็จ:", error);
+    console.error("ลบไฟล์ไม่สำเร็จ:", error);
   }
 }

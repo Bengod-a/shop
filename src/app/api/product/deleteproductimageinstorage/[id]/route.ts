@@ -23,7 +23,7 @@ export async function DELETE(request: NextRequest, { params }:any) {
 
     return NextResponse.json({ message: "Image deleted successfully" }, { status: 200 });
   } catch (error) {
-    console.error("❌ Error:", error);
+    console.error(error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

@@ -2,10 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 
 const bucket = "ProfileUser";
 
-// Create Supabase client
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_KEY!);
 
-// Upload file using standard upload
 export async function uploadFile(image: File) {
   const timeStame = Date.now();
   const newname = `Profile-${timeStame}-${image.name}`;
