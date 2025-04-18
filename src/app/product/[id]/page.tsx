@@ -52,7 +52,6 @@ const Page = () => {
     session.update
   }, [])
 
-  
 
   const fetchProduct = async () => {
     try {
@@ -204,7 +203,7 @@ const Page = () => {
         setIsFavorite(data.isFavorite);
       }
     } catch (error) {
-      console.error("Error checking favorite status:", error);
+      console.error(error);
     }
   };
   

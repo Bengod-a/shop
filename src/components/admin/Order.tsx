@@ -53,7 +53,6 @@ const Order = () => {
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(orders);
 
   const FetchOrders = async () => {
     setLoading(true);
@@ -69,7 +68,7 @@ const Order = () => {
       const data: Order[] = await response.json();
       setOrders(data);
     } catch (error: any) {
-      setError(error.message || "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ");
+      setError(error.message);
     } finally {
       setLoading(false);
     }

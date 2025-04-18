@@ -45,25 +45,20 @@ import prisma from "../../../../../lib/db";
 
 export async function POST(req: NextRequest, { params }:any) {
   try {
-    // ดึง productId จาก params
-    const { id } = params; // แก้การ destructure ให้ถูกต้อง
+    const { id } = params;
     const productId = parseInt(id, 10);
 
-    // ตรวจสอบ productId
     if (isNaN(productId)) {
       return NextResponse.json({ message: "Invalid Product ID" }, { status: 400 });
     }
 
-    // ดึง userId จาก request body
     const { userId } = await req.json();
     const parsedUserId = parseInt(userId, 10);
 
-    // ตรวจสอบ userId
     if (!userId || isNaN(parsedUserId)) {
       return NextResponse.json({ message: "Invalid or missing User ID" }, { status: 400 });
     }
 
-    // ตรวจสอบว่าผู้ใช้มีอยู่จริงหรือไม่
     const user = await prisma.user.findUnique({
       where: { id: parsedUserId },
     });
@@ -72,7 +67,6 @@ export async function POST(req: NextRequest, { params }:any) {
       return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
 
-    // ตรวจสอบว่ามี favorite นี้อยู่แล้วหรือไม่
     const existingFavorite = await prisma.favorite.findFirst({
       where: {
         userId: parsedUserId,
@@ -83,11 +77,11 @@ export async function POST(req: NextRequest, { params }:any) {
     if (existingFavorite) {
       return NextResponse.json(
         { message: "สินค้านี้อยู่ในรายการที่ถูกใจแล้ว" },
-        { status: 409 } // 409 Conflict
+        { status: 409 } 
       );
     }
 
-    // สร้าง favorite ใหม่
+
     await prisma.favorite.create({
       data: {
         userId: parsedUserId,

@@ -7,8 +7,6 @@ import { getServerSession } from "next-auth";
 import Loader from "../components/loadeing/Loader";
 
 
-
-
 const interFont = Inter({
   variable: "--font-inter",
   subsets: ["latin"], 
